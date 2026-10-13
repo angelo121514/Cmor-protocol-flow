@@ -1,0 +1,3 @@
+-- Reserved migration version: an installation-specific data patch was removed.
+-- Fresh installations must never grant subscriptions by a hard-coded email.
+-- Manage plans through the supported administrative flow.

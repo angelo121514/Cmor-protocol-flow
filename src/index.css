@@ -1,0 +1,173 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+@source "./";
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --color-bg: 255 255 255;
+    --color-bg-subtle: 250 250 250;
+    --color-text: 10 10 10;
+    --color-text-secondary: 107 107 107;
+    --color-accent: 0 0 0;
+    --color-accent-secondary: 99 102 241;
+    --color-border: 229 229 229;
+    --logo-dark: #121212;
+    --logo-silver: #b4b4b2;
+    --logo-light: #f9f7e9;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --color-bg: 9 13 22;
+    --color-bg-subtle: 18 24 36;
+    --color-text: 244 244 245;
+    --color-text-secondary: 161 161 170;
+    --color-accent: 220 38 38;
+    --color-accent-secondary: 239 68 68;
+    --color-border: 39 39 42;
+    --logo-dark: #ffffff;
+    --logo-silver: #475569;
+    --logo-light: rgb(var(--color-bg));
+  }
+
+  * {
+    border-color: rgb(var(--color-border));
+  }
+
+  body {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    @apply font-sans antialiased transition-colors duration-200;
+    margin: 0;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold transition-all duration-200 ease-smooth disabled:opacity-50 disabled:cursor-not-allowed focus:outline-hidden focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold transition-all duration-200 ease-smooth disabled:opacity-50 disabled:cursor-not-allowed focus:outline-hidden focus:ring-2 focus:ring-offset-2 bg-accent text-white hover:bg-accent/90 focus:ring-accent;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold transition-all duration-200 ease-smooth disabled:opacity-50 disabled:cursor-not-allowed focus:outline-hidden focus:ring-2 focus:ring-offset-2 bg-accent-secondary text-white hover:bg-accent-secondary/90 focus:ring-accent-secondary;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold transition-all duration-200 ease-smooth disabled:opacity-50 disabled:cursor-not-allowed focus:outline-hidden focus:ring-2 focus:ring-offset-2 border-2 border-accent text-accent hover:bg-accent hover:text-white focus:ring-accent;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-base font-semibold transition-all duration-200 ease-smooth disabled:opacity-50 disabled:cursor-not-allowed focus:outline-hidden focus:ring-2 focus:ring-offset-2 text-text hover:bg-bg-subtle;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full rounded-lg border border-border bg-bg px-4 py-3 text-base text-text placeholder:text-text-secondary focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-text mb-2;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-bg rounded-lg border border-border p-6 transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply bg-bg rounded-lg border border-border p-6 transition-all duration-200 hover:shadow-lg cursor-pointer;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Status badges */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-success/10 text-success;
+  }
+
+  .badge-error {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-error/10 text-error;
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-warning/10 text-warning;
+  }
+
+  .badge-neutral {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-bg-subtle text-text-secondary;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-bg-subtle;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-text-secondary;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Thermal printer receipt styles */
+@media print {
+  body > * {
+    display: none !important;
+  }
+  body > .print-receipt-container {
+    display: block !important;
+    width: 76mm;
+    margin: 0 auto !important;
+    padding: 3mm !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+    color: #000000 !important;
+    background: #ffffff !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  @page {
+    margin: 0 !important;
+    size: auto;
+  }
+}
+
+@media screen {
+  body > .print-receipt-container,
+  .print-receipt-container {
+    display: none !important;
+    visibility: hidden !important;
+    position: absolute !important;
+    left: -99999px !important;
+    top: -99999px !important;
+  }
+}

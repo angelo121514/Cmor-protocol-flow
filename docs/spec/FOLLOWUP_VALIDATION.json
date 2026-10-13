@@ -1,0 +1,85 @@
+{
+  "recordedAt": "2026-10-09T01:13:11.269240+00:00",
+  "scope": "LOCAL_SYNTHETIC_ONLY",
+  "status": "SUPERSEDED_BY_COMPLETE_LOCAL_AND_CI_VALIDATION",
+  "unit": {
+    "passed": 320,
+    "failed": 0,
+    "skipped": 0
+  },
+  "database": {
+    "passed": 52,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "previous clean122 plus SQL34 applied; not a fresh clean123 certification"
+  },
+  "browser": {
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0
+  },
+  "pgTapAssertions": 38,
+  "pythonImageTests": 8,
+  "historicalMigrations": 89,
+  "newMigrations": 34,
+  "blocker": "RESOLVED: user activated Docker; clean123 and upgrade89→123 certified",
+  "operationalConfiguration": "administrator of each customer per explicit user decision; real contacts/printer/catalog/providers not invented",
+  "artifacts": {
+    "unit-results.json": "15b9bd56f7fb2a55cb7510e4f2cefc41aaa8a5143c59bf8b9cb2dc07dc095f6f",
+    "database-results.json": "2ce29410d6c646135911ffc79f5334940e92604c2812ae7a2bb992fa70dbb10a",
+    "browser-database-results.json": "66e91ed7c8c355cd3fc107c169d29604d5a42bfb484a534c3376751e485b1d7c",
+    "source-gates.json": "3484e58414b20daff720dca0315a0207e752426db2c214d479ab07b94fa4748a",
+    "final-npm-audit.json": "25bdccfa924bd29d167cbf2f497137017e53aaf40521cafab375fa1becc58745",
+    "gitleaks-source-results.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "final-unit.log": "d8106347b2a1b23ed3b14ae2a9cbfc0e916af862cc1d578be0954de4bcd44223"
+  },
+  "production": "NOT_DEPLOYED_NOT_VERIFIED",
+  "sourceGates": [
+    {
+      "name": "lint",
+      "exitCode": 0,
+      "durationMs": 90364
+    },
+    {
+      "name": "app",
+      "exitCode": 0,
+      "durationMs": 67309
+    },
+    {
+      "name": "tests",
+      "exitCode": 0,
+      "durationMs": 27980
+    },
+    {
+      "name": "Edge",
+      "exitCode": 0,
+      "verification": "Repeated after ArrayBuffer type declaration fix; previous TS2322 not an approval."
+    },
+    {
+      "name": "build",
+      "exitCode": 0,
+      "verification": "Vite build passed after Edge type correction."
+    }
+  ],
+  "dependencyAudit": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "secretScan": {
+    "findings": 0,
+    "scope": "source snapshot; ignored runtime credentials excluded"
+  },
+  "coveragePercent": {
+    "statements": 52.01,
+    "branches": 47.24,
+    "functions": 49.63,
+    "lines": 52.4,
+    "scope": "Vitest instrumented modules only; final-unit.log text reporter"
+  },
+  "localEvidence": "LOCAL_VALIDATION.json",
+  "ciEvidence": "CI_VALIDATION.json"
+}

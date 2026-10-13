@@ -1,0 +1,71 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# MCP config local (cada dev usa su propia config / OAuth)
+.mcp.json
+
+# Notas locales (referencias internas del proyecto)
+NOTAS.md
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+.codex/
+.zcode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Debug and temporary files
+*debug*
+*.tmp
+*.bak
+PROGRESS.md
+
+# Fase 0 — Testing & Backups
+/backups/
+/coverage/
+/playwright-report/
+/playwright-database-report/
+/test-results/
+/playwright/.cache/
+/supabase/.branches
+/supabase/.temp
+.vercel
+
+# Synthetic local test credentials / runtime artifacts
+.local-test/
+__pycache__/
+
+# Public source excludes private/local inputs
+.env.*
+!.env.example
+!**/.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.dump
+.agents/
+.zcode/
+*private-audit*/

@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting — P1-6: activación gradual de strict mode */
+    "strict": false,                        // TODO P2: subir a true tras limpiar 132 any
+    "noImplicitAny": false,                 // TODO P2: subir a true (requiere fix en supabase.ts, CustomerMenu, SetupPassword, AiRecommendations, Pos, Menu, Orders)
+    "strictNullChecks": false,              // TODO P2: subir a true
+    "strictFunctionTypes": false,           // TODO P2: subir a true
+    "strictBindCallApply": false,           // TODO P2: subir a true
+    "strictPropertyInitialization": false,  // TODO P2: subir a true
+    "noImplicitThis": false,                // TODO P2: subir a true
+    "alwaysStrict": true,
+    "noUnusedLocals": false,                // TODO P2: activar
+    "noUnusedParameters": false,            // TODO P2: activar
+    "noImplicitReturns": false,             // TODO P2: activar (requiere fix en Pos.tsx, Menu.tsx, Orders.tsx)
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "erasableSyntaxOnly": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"],
+  "exclude": ["src/tests"]
+}

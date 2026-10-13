@@ -1,0 +1,2 @@
+import {defineConfig} from 'vitest/config';
+export default defineConfig({test:{environment:'node',env:{VITE_SUPABASE_URL:process.env.VITE_TEST_SUPABASE_URL??'http://127.0.0.1:55421',VITE_SUPABASE_ANON_KEY:process.env.VITE_TEST_SUPABASE_ANON_KEY??'local-fixture-required'},include:['src/tests/integration/**/*.test.ts','src/tests/security/**/*.test.ts',...(process.env.EXPECT_UPGRADE_FIXTURE==='1'?['src/tests/upgrade/**/*.test.ts']:[])],setupFiles:['src/tests/local/database-setup.ts'],maxWorkers:1,fileParallelism:false,testTimeout:15000,hookTimeout:30000}});

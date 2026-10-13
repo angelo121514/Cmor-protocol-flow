@@ -1,0 +1,32 @@
+services:
+  clamav:
+    image: clamav/clamav@sha256:ebec5bc138401b36ae987caa1a3fa3c3b2a21ed3d51f0bfa5852825e663e67b0
+    mem_limit: 3g
+    cpus: 2
+    environment:
+      CLAMD_CONF_MaxThreads: 2
+      FRESHCLAM_CHECKS: 12
+    volumes:
+      - signatures:/var/lib/clamav
+    networks: [inspection,updates]
+    restart: unless-stopped
+  inspector:
+    build: .
+    environment:
+      IMAGE_INSPECTION_SECRET: ${IMAGE_INSPECTION_SECRET:?Configure a server-only random secret of at least 32 characters}
+    ports: ["127.0.0.1:58081:58081"]
+    networks: [inspection,ingress]
+    mem_limit: 512m
+    pids_limit: 64
+    read_only: true
+    tmpfs: [/tmp:size=16m]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+volumes:
+  signatures:
+networks:
+  inspection:
+    internal: true
+  updates:
+  ingress:

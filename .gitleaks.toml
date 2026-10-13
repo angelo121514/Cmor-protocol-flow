@@ -1,0 +1,9 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Public HMAC golden vector: SHA-256 of the synthetic example cmc_xxx, never a provider credential"
+condition = "AND"
+paths = ['''(^|/)src/tests/unit/U24-accounting\.test\.ts$''']
+regexTarget = "secret"
+regexes = ['''^aa9b502d6f56433efd9a9b6aed72b8f182fe362f4506a8f6a4631db1ffbcdd18$''']
